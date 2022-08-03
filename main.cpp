@@ -3,6 +3,36 @@
 #include <algorithm>
 #include <numeric>
 
+struct Person{
+    std::string  name;
+    int age;
+    bool operator>(const Person &p1)const{
+       return this->age > p1.age;
+    }
+    bool operator<(const Person &p1)const{
+        return this->age < p1.age;
+    }
+
+};
+
+template <typename T> // ou template <class T> c'est la même chose
+T max(T a, T b){
+    return (a > b ? a : b );
+}
+
+
+
+
+template <typename T1, typename T2>
+void func(T1 a, T2 b){
+    std::cout << a << "" << b;
+}
+
+std::ostream &operator <<(std::ostream &os,const Person &p){
+    os << p.name;
+    return os;
+}
+
 int main() {
     std::vector<int> monVector {1 ,5 ,3 };
 
@@ -56,5 +86,48 @@ int main() {
     // containers - algorithms - iteator  - foncteurs(pas dans ce cours) - allocateurs (pas dans ce cours)
 
 
+    // CODE GENERIQUE
+
+    // V1 on peut utiliser les macro, mais ce n'est pas conseillé (surtout macro avec param)
+
+    // V2 template pour une fonction :
+
+    // Exemple 1  :
+
+    // Creation template (le code n'est pas généré tant que l'utilisateur n'utilise pas une version spécifique de la template)
+    // Utilisation spécifique de la template
+    int a {10};
+    int b {20};
+    std::cout << max<int>(a,b); // ou std::cout << max(a,b); il devenira le type
+    Person p1 {"hichem",3};
+    Person p2 {"nab",5};
+    Person p3 = max(p1,p2);
+    std::cout << p3.name << " est plus grand " << std::endl;
+
+    // Exemple 2  :
+
+    // Creation de templates avec plusieurs type generique
+    // Utilisation d'une template avec plusieur type
+    func<int,double>(10,20.3);
+    func('A',23.5);
+
     return 0;
 }
+
+//template de classe
+template <typename T> // On peut ausi avec plusieurs type différents template <typename T1, typename T2>
+class Item {
+    private:
+        std::string name;
+        T value;
+    public:
+        Item(std::string name,T value):name{name} , value{value}{}
+        std::string getName(){
+            return this->name;
+        };
+      T getValue(){
+        return this->value;
+    };
+    };
+
+

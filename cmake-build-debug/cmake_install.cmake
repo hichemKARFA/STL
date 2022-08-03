@@ -1,4 +1,4 @@
-# Install script for directory: D:/cours/l3s6/pds/STL
+# Install script for directory: C:/Users/hiche/CLionProjects/STL
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,7 +34,7 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "C:/Program Files/winlib/mingw64/bin/objdump.exe")
+  set(CMAKE_OBJDUMP "C:/Users/hiche/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.3345.126/bin/mingw/bin/objdump.exe")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "D:/cours/l3s6/pds/STL/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/hiche/CLionProjects/STL/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
